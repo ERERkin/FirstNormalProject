@@ -15,8 +15,7 @@ import java.io.Writer;
 
 @WebServlet("/boo")
 public class MyServlet extends HttpServlet {
-    public static void main(String[] args) {
-    }
+    public static void main(String[] args)
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
