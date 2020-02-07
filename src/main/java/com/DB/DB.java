@@ -1,11 +1,10 @@
 package com.DB;
 
 import com.model.Application;
-import com.model.ProductAmount;
-import com.model.UserStatistic;
 import lombok.SneakyThrows;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DB {
     private static final String url = "jdbc:postgresql://localhost:5432/";
@@ -31,35 +30,6 @@ public class DB {
             statement.setString(2,application.getEmail());
             statement.setString(3,application.getCourse());
             statement.setBoolean(4,application.getIsOnline());
-            statement.executeUpdate();
-            return true;
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-    public boolean addUserStatistic(UserStatistic userStatistic)  {
-        String SQL = "insert into user_statistic (login, email, storyName, password) values (?,?,?,?)";
-        try(Connection connection = connect();
-            PreparedStatement statement = connection.prepareStatement(SQL);) {
-            statement.setString(1,userStatistic.getLogin());
-            statement.setString(2,userStatistic.getEmail());
-            statement.setString(3,userStatistic.getStoryName());
-            statement.setString(4,userStatistic.getPassword());
-            statement.executeUpdate();
-            return true;
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-    public boolean addProductAmount(ProductAmount productAmount)  {
-        String SQL = "insert into product_amounts (login, email, storyName, password) values (?,?,?,?)";
-        try(Connection connection = connect();
-            PreparedStatement statement = connection.prepareStatement(SQL);) {
-            statement.setString(1,productAmount.getProductCode());
-            statement.setInt(2,productAmount.getAmountInStock());
-            statement.setInt(3,productAmount.getAmountSold());
             statement.executeUpdate();
             return true;
         } catch (SQLException e){
