@@ -67,4 +67,5 @@ public class DB {
         }
         return false;
     }
+    public void add(){}
 }
