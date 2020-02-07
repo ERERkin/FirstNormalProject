@@ -9,10 +9,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
-public class UserStatistic {
+public class ProductAmount {
     int id;
-    String login;
-    String email;
-    String storyName;
-    String password;
+    String productCode;
+    int amountInStock;
+    int amountSold;
 }
